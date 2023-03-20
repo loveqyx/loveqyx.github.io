@@ -1,24 +1,43 @@
+<!-- 
+最后修改：ZhangDi
+https://github.com/616620131/Simple-Search-Page 
+时间:2020-05-28 版权所有，请勿删除 
+-->
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 	<head>
-		<meta charset="utf-8">
-		<title>极简搜索</title>
-		<style type="text/css">
-			
-			form .text {
-				display: inline-block;
-				border: 0;
-				width: 340px;
-				height: 58px;
-				font-size: 19px;
-				outline: none;
-				
-				border: 2px solid #01af63;
-			}
-                         <style type="text/css">
-
-		</style>
-<meta name="360-site-verification" content="424af1bbc399d184f0ad3051f45b8955" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<title>雨欣搜索</title>
+		<meta name="author" content="ZhangDi" />
+		<meta name="description" content="极简多引擎主页，提供聚合搜索框和网址导航。" />
+		<meta name="keywords" content="简洁搜索,极简搜索,简洁导航" />
+		<link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+		<link rel="icon" href="img/search.png" sizes="192x192" />
+		<link rel="apple-touch-icon-precomposed" href="img/search.png" />
+		<meta name="msapplication-TileImage" content="img/search.png" />
+		<link rel="shortcut icon" href="img/search.png" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="full-screen" content="yes">
+		<!--UC强制全屏-->
+		<meta name="browsermode" content="application">
+		<!--UC应用模式-->
+		<meta name="x5-fullscreen" content="true">
+		<!--QQ强制全屏-->
+		<meta name="x5-page-mode" content="app">
+		<!--QQ应用模式-->
+		<link href="font/embed.css" rel="stylesheet">
+		<link href="css/style.min.css" rel="stylesheet">
+		<script src="https://at.alicdn.com/t/font_1592760_ia4zj4yyia.js"></script>
+		<script src="https://at.alicdn.com/t/font_1592665_qtxgsonaqvd.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+		<script src="js/sou.min.js"></script>
+		<link rel="shortcut icon" href="img/logo.ico" />
+		<link rel="stylesheet" href="css/search.min.css" />
+		<!-- 百度统计 -->
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -28,27 +47,63 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JZKW5ZJ5B0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JZKW5ZJ5B0');
-</script>
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
 <script>LA.init({id:"K0TiwRb2perBxPRI",ck:"K0TiwRb2perBxPRI",autoTrack:true,hashMode:true})</script>
 
 	</head>
 	<body>
-<br>
-<br><br><br><br><br><br><br><br><br><br>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"/>       
-        <center>
-		<form target="_blank" method="get" action="https://cn.bing.com/search">
-			<input type="text" placeholder="请输入关键词" name="q" class="text" />
-		</form>
-        </center>
+		<div id="menu"><i></i></div>
+		<div class="list closed">
+			<ul>
+			</ul>
+		</div>
+		<div id="content">
+			<div class="con">
+				<div class="shlogo">
+					<div class="logo-text embed">雨欣&nbsp;&nbsp;导航</div>
+				</div>
+				<section class="sousuo">
+					<div class="search">
+						<div class="search-box">
+							<svg class="icon" id="search-icon" aria-hidden="true">
+								<use xlink:href="#icon-baidu"></use>
+							</svg>
+							<input type="text" id="txt" class="search-input" autocomplete="off" autofocus="autofocus" placeholder="百度搜索" />
+							<svg class="icon" aria-hidden="true" id="search-clear" style="display: none;">
+								<use xlink:href="#icon-shanchu"></use>
+							</svg>
+							<svg class="icon" aria-hidden="true" id="search-enter">
+								<use xlink:href="#icon-enter"></use>
+							</svg>
+						</div>
+						<!-- 搜索热词 -->
+						<div class="box search-hot-text" id="box" style="display: none;">
+							<ul></ul>
+						</div>
+						<!-- 搜索引擎 -->
+						<div class="search-engine" style="display: none;">
+							<div class="search-engine-head">
+								<strong class="search-engine-tit">选择您的默认搜索引擎：</strong>
+								<div class="search-engine-tool">搜索热词：
+									<label class="switch">
+										<input id="hot-btn" type="checkbox">
+										<div class="slider round"></div>
+									</label>
+								</div>
+							</div>
+							<ul class="search-engine-list"></ul>
+						</div>
+					</div>
+				</section>
+			</div>
+			
+		</div>
 	</body>
+	<script src=" ./js/search.min.js"> </script>
+	<script src=" ./js/jsonload.js"> </script>
 </html>
+<!-- 
+最后修改：ZhangDi
+https://github.com/616620131/Simple-Search-Page 
+时间:2020-05-28 版权所有，请勿删除 
+-->
