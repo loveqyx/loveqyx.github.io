@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>隐藏内容</title>
+</head>
+<body>
+<br>
+<center>
+<h1>请输入密码以继续访问！</h1>
+	<input type="password" id="password">
+	<button onclick="checkPassword()">确认</button>
+</center>
+<script>
+		function checkPassword() {
+			// 获取用户输入的密码
+			var password = document.getElementById("password").value;
+
+			// TODO: 检查密码是否正确
+
+			// 如果密码正确，跳转到受保护页面
+			if (password == "qyxqyx") {
+				window.location.href = "https://loveqyx.github.io";
+			}
+			// 如果密码错误，弹出提示框
+			else {
+				alert("密码错误！正在退出...");
+				window.location.href = "https://loveqyx.github.io";
+			}
+		}
+	</script>
+</body>
+</html>
