@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local Data Line Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <input type="file" id="input-file" accept=".csv">
+
+    <canvas id="chart" width="800" height="600"></canvas>
+
+    <script type="text/javascript">
+        // 选择本地CSV文件
+        document.getElementById('input-file').addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (!file) {
+                return;
+            }
+
+            // 读取CSV文件数据
+            var reader = new FileReader();
+            reader.readAsText(file);
+            reader.onload = function(e) {
+                var csvString = e.target.result;
+
+                // 将CSV解析为数组
+                var rows = csvString.split("\n");
+                var data = [];
+                for (var i = 1; i < rows.length; i++) {
+                    var cols = rows[i].split(",");
+                    data.push({
+                        x: new Date(Date.parse(cols[0])),
+                        y: parseFloat(cols[1])
+                    });
+                }
+
+                // 创建折线图
+                var ctx = document.getElementById('chart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        datasets: [{
+                            label: "Data",
+                            data: data,
+                            borderColor: 'rgb(255, 99, 132)',
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                type: 'time',
+                                position: 'bottom'
+                            }]
+                        }
+                    }
+                });
+            };
+        });
+    </script>
+</body>
+</html>
