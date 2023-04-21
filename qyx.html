@@ -1,32 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>隐藏内容</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>正在跳转...</title>
+    <script>
+        function countDown() {
+            //获取初始时间
+            var time = document.getElementById("Time");
+
+            //获取到id为time标签中的数字时间
+            if (time.innerHTML == 0) {
+                //等于0时清除计时，并跳转该指定页面
+                window.location.href="https://qyx.one/dh";
+            } else {
+                time.innerHTML = time.innerHTML - 1;
+            }
+        }
+
+        //1000毫秒调用一次
+        window.setInterval("countDown()", 1000);
+    </script>
+    <style>
+        #main {
+            position: absolute;
+            width: 420px;
+            height: 200px;
+            left: 50%;
+            top: 50%;
+            margin-left: -210px;
+            margin-top: -100px;
+        }
+
+        #Time {
+            font-size: 25px;
+            text-align: center;
+            color: red;
+        }
+
+        .boxs {
+            font-size: 25px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        #Font {
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<br>
-<center>
-<h1>请输入密码以继续访问！</h1>
-	<input type="password" id="password">
-	<button onclick="checkPassword()">确认</button>
-</center>
-<script>
-		function checkPassword() {
-			// 获取用户输入的密码
-			var password = document.getElementById("password").value;
-
-			// TODO: 检查密码是否正确
-
-			// 如果密码正确，跳转到受保护页面
-			if (password == "qyxqyx") {
-				window.location.href = "https://qyx.one/dh";
-			}
-			// 如果密码错误，弹出提示框
-			else {
-				alert("密码错误！正在退出...");
-				window.location.href = "https://loveqyx.github.io";
-			}
-		}
-	</script>
+<div id="main">
+    <div>
+        <span class="boxs">	获取地址成功,正在加载！</span>
+    </div>
+    <div>
+        <span class="boxs">
+            本页面将在<span id="Time">2</span>秒之后跳转到导航页面！
+        </span>
+    </div>
+    <div>
+        <span style="" id="Font">
+            如未成功跳转，请<a href="javascript: window.location.href='https://qyx.one/dh'">点击这里</a>
+        </span>
+    </div>
+</div>
 </body>
 </html>
+
