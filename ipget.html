@@ -6,7 +6,7 @@
 </head>
 <body>	
 	
-	<p>您的IP地址是: <span id="ip"></span><span id="country"></span><span id="province"></span><span id="city"></span><span id="isp"></span></p>
+	<p>您的IP地址是: <span id="ip"></span>&nbsp<span id="province"></span>&nbsp<span id="city"></span>&nbsp<span id="isp"></span></p>
 	<script>
 		// 使用免费的ipify API获取访客的IP地址
 		fetch('https://api.ipify.org/?format=json')
@@ -20,7 +20,6 @@
 			        fetch(url_add)
 			        .then(response => response.json())
 			        .then(data => {
-			        document.getElementById('country').textContent = data.country;
 			        document.getElementById('province').textContent = data.province;
 			        document.getElementById('city').textContent = data.city;
                                 if(data.isp!='0'){
