@@ -8,18 +8,14 @@
 
 	<p>您的IP地址是: <span id="ip"></span></p>
 	<script>
-		var xhr = new XMLHttpRequest();
-		xhr.open('GET', 'https://qryip.api.bdymkt.com/lundear/qryip?ip=null&', true);
-		xhr.setRequestHeader("Content-type", "application/json;charset=UTF-8");
-		xhr.setRequestHeader("X-Bce-Signature", "AppCode/c505845bd4a04272ade8250d9c7a8312");
-		xhr.setRequestHeader("Access-Control-Allow-Origin", "*"); 
-		xhr.responseType = 'json';
-		xhr.onload = function() {
- 		 if(xhr.status == 200) {
- 		    console.log(xhr.response);
- 		 }
-   };
-		xhr.send();
+		// 使用免费的ipify API获取访客的IP地址
+		fetch('https://api.ipify.org/?format=json')
+			.then(response => response.json())
+			.then(data => {
+				document.getElementById('ip').textContent = data.isp;
+			})
+			.catch(error => console.error(error));
 	</script>
+ </script>
 </body>
 </html>
