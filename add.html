@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Get Physical Location</title>
+    <script src="https://js.maxmind.com/js/geoip.js"></script>
+    <script>
+      function getLocation() {
+        const geoip = new GeoIP();
+        geoip.fetch((result) => {
+          console.log(result);
+        })
+      }
+    </script>
+  </head>
+  <body onload="getLocation()">
+    <h1>My physical location is:</h1>
+    <p id="location"></p>
+  </body>
+</html>
