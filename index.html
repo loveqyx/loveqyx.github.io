@@ -112,7 +112,7 @@ https://github.com/616620131/Simple-Search-Page
 		                        fetch('https://api.ipify.org/?format=json')
 			                        .then(response => response.json())
 			                        .then(data => {
-                                                        document.getElementById('showuser').textContent = "您的ip地址为：";
+                                                        document.getElementById('showuser').textContent = "当前ip:";
 				                        document.getElementById('ip').textContent = data.ip;
 			                                let ip_add = data.ip;
 			                                let url_get="https://www.fkcoder.com/ip?ip=";
