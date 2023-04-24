@@ -5,18 +5,29 @@
 	<meta charset="UTF-8">
 </head>
 <body>	
-
-	<p>您的province地址是: <span id="province"></span></p>
+	
+	<p>您的IP地址是: <span id="ip"></span><span id="country"></span><span id="province"></span><span id="city"></span><span id="isp"></span></p>
 	<script>
 		// 使用免费的ipify API获取访客的IP地址
-		fetch('https://www.fkcoder.com/ip?ip=49.140.166.221')
+		fetch('https://api.ipify.org/?format=json')
 			.then(response => response.json())
 			.then(data => {
-				document.getElementById('province').textContent = data.province;
+				document.getElementById('ip').textContent = data.ip;
+			        let ip_add=data.ip;
 			})
 			.catch(error => console.error(error));
-		
+		let url_get="https://www.fkcoder.com/ip?ip=";
+                let url_add=ip_add+url_get;
+		// 使用免费的ipify API获取访客的IP地址
+		fetch(url_add)
+			.then(response => response.json())
+			.then(data => {
+			document.getElementById('country').textContent = data.country;
+			document.getElementById('province').textContent = data.province;
+			document.getElementById('city').textContent = data.city;
+			document.getElementById('isp').textContent = data.isp;
+			})
+			.catch(error => console.error(error));
 	</script>
- </script>
 </body>
 </html>
