@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>获取访客IP地址及物理地址</title>
+  <script src="https://js.maxmind.com/js/geoip.js"></script>
+  <script>
+    function getLocation() {
+      const geoip = new GeoIP();
+      geoip.fetch((result) => {
+        console.log(result);
+      });
+    }
+  </script>
+</head>
+<body onload="getLocation()">
+</body>
+</html>
