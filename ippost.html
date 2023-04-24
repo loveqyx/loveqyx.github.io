@@ -8,6 +8,21 @@
 
 	<p>您的IP地址是: <span id="ip"></span></p>
 	<script>
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', 'https://ipaddquery.api.bdymkt.com/ip/query?ip=null&', true);
+		xhr.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+		xhr.setRequestHeader("X-Bce-Signature", "AppCode/c505845bd4a04272ade8250d9c7a8312");
+		xhr.setRequestHeader("Access-Control-Allow-Origin", "*"); 
+		xhr.onreadystatechange = function() {
+		    if(xhr.readyState == 4 && xhr.status == 200) {
+		        var response = JSON.parse(xhr.responseText);
+		        //处理响应数据    
+		        xhr.responseText;
+		    }
+		}
+		var data = {param1: value1, param2: value2};
+		xhr.send(JSON.stringify(data));
+<!--
 		// 使用百度API获取访客的IP地址
 		fetch('https://ipaddquery.api.bdymkt.com/ip/query?ip=null&',{
 			method: "POST",
@@ -21,6 +36,7 @@
 			.then(data => {
 				document.getElementById('ip').textContent = data.ip;
 			})
+-->
 	</script>
 </body>
 </html>
