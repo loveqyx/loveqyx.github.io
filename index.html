@@ -106,8 +106,17 @@ https://github.com/616620131/Simple-Search-Page
                                 <button onclick="window.location.href='https://www.kaggle.com/'">&nbspKaggle&nbsp&nbsp|</button>
                                 <button onclick="window.location.href='https://fanyi.youdao.com/index.html#/'">&nbsp有道云翻译&nbsp&nbsp|</button>
                                 <button onclick="window.location.href='https://github.com/'">&nbspGithub&nbsp&nbsp|</button>
-				<br><br>
-				
+				<br>
+				<p>您的IP地址是: <span id="ip"></span></p>
+					<script>
+						// 使用免费的ipify API获取访客的IP地址
+						fetch('https://api.ipify.org/?format=json')
+							.then(response => response.json())
+							.then(data => {
+								document.getElementById('ip').textContent = data.isp;
+							})
+							.catch(error => console.error(error));
+					</script>
                         </center>
 			</div>
 		</div>
