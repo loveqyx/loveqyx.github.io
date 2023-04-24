@@ -16,25 +16,10 @@
 		xhr.onreadystatechange = function() {
 		    if(xhr.readyState == 4 && xhr.status == 200) {
 		        var response = JSON.parse(xhr.responseText);
-		        //处理响应数据    
-		        xhr.responseText;
+		        //处理响应数据
+			    console.log(response)		        
 		    }
 		}
-<!--
-		// 使用百度API获取访客的IP地址
-		fetch('https://ipaddquery.api.bdymkt.com/ip/query?ip=null&',{
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json;charset=UTF-8",
-				"X-Bce-Signature": "AppCode/c505845bd4a04272ade8250d9c7a8312",
-			},
-			mode:'cors'
-		})
-			.then(response => response.json())
-			.then(data => {
-				document.getElementById('ip').textContent = data.ip;
-			})
--->
 	</script>
 </body>
 </html>
