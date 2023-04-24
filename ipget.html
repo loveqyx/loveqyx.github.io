@@ -8,26 +8,22 @@
 
 	<p>您的IP地址是: <span id="ip"></span></p>
 	<script>
-    var request = require('request');
-    var querystring = require('querystring');
-    var headers = {
-        "Content-Type": "application/json;charset=UTF-8",
-        "X-Bce-Signature": "AppCode/c505845bd4a04272ade8250d9c7a8312",
-    }
-    var url = 'https://ipaddquery.api.bdymkt.com/ip/query?ip=null&';
-    var options = {
-        url: url,
-        method: 'POST',
-        headers: headers,
-    }
-    request(options, function (error, response, body) {
-        if (error !== null) {
-            console.log('error:', error);
-            return;
-        }
-        console.log(response.headers);
-        console.log(body);
-    });
+		// 使用免费的ipify API获取访客的IP地址
+		fetch('https://ipaddquery.api.bdymkt.com/ip/query',{
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json;charset=UTF-8",
+				"X-Bce-Signature": "AppCode/c505845bd4a04272ade8250d9c7a8312",
+			}
+		})
+			
+			)
+			.then(response => response.json())
+			.then(data => {
+				document.getElementById('ip').textContent = data.ip;
+			})
+			.catch(error => console.error(error));
+	</script>
  </script>
 </body>
 </html>
