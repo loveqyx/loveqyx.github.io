@@ -5,6 +5,11 @@
 	<meta charset="UTF-8">
 </head>
 <body>
+	<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>  
+        <script type="text/javascript">  
+         console.log(returnCitySN)
+         document.write('来自'+returnCitySN["cname"]+'的用户，您的IP是：'+returnCitySN["cip"])  
+		
 	<p>您的IP地址是: <span id="ip"></span></p>
 	<script>
 		// 使用免费的ipify API获取访客的IP地址
@@ -15,5 +20,6 @@
 			})
 			.catch(error => console.error(error));
 	</script>
+ </script>
 </body>
 </html>
