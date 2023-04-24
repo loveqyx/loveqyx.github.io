@@ -6,12 +6,13 @@
 </head>
 <body>	
 	
-	<p>您的IP地址是: <span id="ip"></span>&nbsp<span id="province"></span>&nbsp<span id="city"></span>&nbsp<span id="isp"></span></p>
+	<p><span id="showuser"></span>&nbsp<span id="ip"></span>&nbsp<span id="province"></span>&nbsp<span id="city"></span>&nbsp<span id="isp"></span></p>
 	<script>
 		// 使用免费的ipify API获取访客的IP地址
 		fetch('https://api.ipify.org/?format=json')
 			.then(response => response.json())
 			.then(data => {
+                                document.getElementById('showuser').textContent = "您的ip地址为：";
 				document.getElementById('ip').textContent = data.ip;
 			        let ip_add = data.ip;
 			        let url_get="https://www.fkcoder.com/ip?ip=";
@@ -20,8 +21,12 @@
 			        fetch(url_add)
 			        .then(response => response.json())
 			        .then(data => {
+                                if(data.province!='0'){
 			        document.getElementById('province').textContent = data.province;
+              }
+                                if(data.city!='0'){
 			        document.getElementById('city').textContent = data.city;
+              }
                                 if(data.isp!='0'){
 			        document.getElementById('isp').textContent = data.isp;
               }
