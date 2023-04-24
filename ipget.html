@@ -14,18 +14,18 @@
 			.then(data => {
 				document.getElementById('ip').textContent = data.ip;
 			        let ip_add=data.ip;
-			})
+			        let url_get="https://www.fkcoder.com/ip?ip=";
+			        let url_add=ip_add+url_get;
+			        // 使用免费的ipify API获取访客的IP地址
+			        fetch(url_add)
+			        .then(response => response.json())
+			        .then(data => {
+			        document.getElementById('country').textContent = data.country;
+			        document.getElementById('province').textContent = data.province;
+			        document.getElementById('city').textContent = data.city;
+			        document.getElementById('isp').textContent = data.isp;
+			        })
 			.catch(error => console.error(error));
-		let url_get="https://www.fkcoder.com/ip?ip=";
-                let url_add=ip_add+url_get;
-		// 使用免费的ipify API获取访客的IP地址
-		fetch(url_add)
-			.then(response => response.json())
-			.then(data => {
-			document.getElementById('country').textContent = data.country;
-			document.getElementById('province').textContent = data.province;
-			document.getElementById('city').textContent = data.city;
-			document.getElementById('isp').textContent = data.isp;
 			})
 			.catch(error => console.error(error));
 	</script>
