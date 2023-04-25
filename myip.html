@@ -5,7 +5,6 @@
 	<meta charset="UTF-8">
 </head>
 <body>	
-	<br><br><br><br><br><br><br><br><br>
 	<p><span id="wait"></span>
 	<br><span id="showuserip"></span>&nbsp<span id="ip"></span>
         <br>
@@ -29,16 +28,16 @@
                                 document.getElementById('showuserip').textContent = "ip地址:";
 				document.getElementById('ip').textContent = data.ip
 			        if(data.country!='0'){
-				document.getElementById('showusercountry').textContent = "国 家:";
+				document.getElementById('showusercountry').textContent = "国  家:";
 			        document.getElementById('country').textContent = data.country;
 				}
 			
                                 if(data.province!='0'){
-				document.getElementById('showuserprovince').textContent = "省 份:";
+				document.getElementById('showuserprovince').textContent = "省  份:";
 			        document.getElementById('province').textContent = data.region;
 				}
                                 if(data.city!='0'){
-				document.getElementById('showusercity').textContent = "城 市:";
+				document.getElementById('showusercity').textContent = "城  市:";
 			        document.getElementById('city').textContent = data.city;
 				}
                                 if(data.isp!='0'){
@@ -46,11 +45,11 @@
 			        document.getElementById('isp').textContent = data.isp;
 				}
                                 if(data.timezone!='0'){
-				document.getElementById('showusertime').textContent = "时 区:";
+				document.getElementById('showusertime').textContent = "时  区:";
 			        document.getElementById('time').textContent = data.timezone;
 				}
                                 if(data.timezone!='0'){
-				document.getElementById('showuserorganization').textContent = "组 织:";
+				document.getElementById('showuserorganization').textContent = "组  织:";
 			        document.getElementById('organization').textContent = data.organization;
 				}
 				})
