@@ -5,21 +5,17 @@
 	<meta charset="UTF-8">
 </head>
 <body>	
-
-	<p>您的IP地址是: <span id="ip"></span></p>
-	<script>
-		var xhr = new XMLHttpRequest();
-		xhr.open('POST', 'https://ipaddquery.api.bdymkt.com/ip/query?ip=null&', true);
-		xhr.setRequestHeader("Content-type", "application/json;charset=UTF-8");
-		xhr.setRequestHeader("X-Bce-Signature", "AppCode/c505845bd4a04272ade8250d9c7a8312");
-		xhr.setRequestHeader("Access-Control-Allow-Origin", "*"); 
-		xhr.onreadystatechange = function() {
-		    if(xhr.readyState == 4 && xhr.status == 200) {
-		        var response = JSON.parse(xhr.responseText);
-		        //处理响应数据
-			    console.log(response);		        
-		    }
-		}
-	</script>
+<script type="application/javascript">
+$(document).ready(function() {
+    $.getJSON("https://api.ip.sb/geoip?callback=?",
+        function(json) {
+            document.write("Geolocation information for IP address: ", json.ip);
+            document.write("Country: ", json.country);
+            document.write("Latitude: ", json.latitude);
+            document.write("Longitude: ", json.longitude);
+        }
+    );
+});
+</script>
 </body>
 </html>
