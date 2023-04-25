@@ -7,7 +7,8 @@
 <body>	
 	<center>
 	<br><br><br><br><br><br><br><br><br>
-	<p><span id="showuserip"></span>&nbsp<span id="ip"></span>
+	<p><span id="wait"></span>
+	<br><span id="showuserip"></span>&nbsp<span id="ip"></span>
 	<br>
 	<span id="showuserprovince"></span>&nbsp<span id="province"></span>
 	<br>
@@ -16,10 +17,12 @@
 	<span id="showuserisp"></span>&nbsp<span id="isp"></span></p>
 	</center>
 	<script>
+		document.getElementById('wait').textContent = "正在加载您的ip地址信息，请稍后...";
 		// 使用免费的ipify API获取访客的IP地址
 		fetch('https://api.ipify.org/?format=json')
 			.then(response => response.json())
 			.then(data => {
+			        document.getElementById('wait').textContent = "加载成功！";
                                 document.getElementById('showuserip').textContent = "您的ip地址为:";
 				document.getElementById('ip').textContent = data.ip;
 			        let ip_add = data.ip;
