@@ -11,10 +11,10 @@
     <script>
       $('#list-files-btn').click(function() {
         var xhr = new XMLHttpRequest();
-        var url = 'https://dav.jianguoyun.com/dav/'; //WebDAV服务器地址
+        var url = 'https://drive.loili.com/dav'; //WebDAV服务器地址
         xhr.open('PROPFIND', url);
-        var username = 'ahddg@outlook.com';
-        var password = 'ar2dztfp4fz6jjrf';
+        var username = 'huhy12@163.com';
+        var password = 'BBvrrpMbjTijtEiib7lfiZXSm2Gy5OkG';
         var auth = btoa(username + ':' + password); //base64编码
         xhr.setRequestHeader('Authorization', 'Basic ' + auth);
         xhr.withCredentials = true; //支持跨域请求
