@@ -1,11 +1,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>上传文件到WebDAV服务器</title>
+    <title>上传文件到服务器</title>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   </head>
   <body>
-    <h2>上传文件到WebDAV服务器</h2>
+    <center>
+    <h2>上传文件到服务器</h2>
     <form>
       <label for="file-input">选择要上传的文件:</label><br>
       <input type="file" id="file-input"/><br><br>
@@ -15,9 +16,11 @@
       <input type="password" id="password"><br><br>
       <button type="submit">上传</button>
     </form>
+    <progress id="progress-bar" max="100" value="0">0%</progress>
+    </center>
     <script>
       $('form').submit(function(event) {
-        event.preventDefault(); //禁止表单默认提交
+        event.preventDefault(); //防止默认提交
         var fileInput = $('#file-input')[0];
         var file = fileInput.files[0];
         if (!file) {
@@ -25,7 +28,7 @@
           return;
         }
         var xhr = new XMLHttpRequest();
-        var url = 'https://dav.jianguoyun.com/dav/' + file.name; //替换成你的WebDAV服务器地址
+        var url = 'http://example.com/path/to/your/webdav/server/' + file.name; //替换成你的WebDAV服务器地址
         xhr.open('PUT', url);
         var username = $('#username').val();
         var password = $('#password').val();
@@ -33,9 +36,17 @@
         xhr.setRequestHeader('Authorization', 'Basic' + auth);
         xhr.setRequestHeader('Content-Type', file.type);
         xhr.setRequestHeader('Content-Length', file.size);
+        xhr.withCredentials = true; //支持跨域请求
+        xhr.upload.addEventListener('progress', function(event) {
+          if (event.lengthComputable) {
+            var percentComplete = event.loaded / event.total * 100;
+            $('#progress-bar').val(percentComplete).text(percentComplete.toFixed(2) + '%');
+          }
+        }, false);
         xhr.onload = function() {
           if (xhr.status === 201 || xhr.status === 204) {
             alert('文件上传成功');
+            $('#progress-bar').val(0).text('0%'); //重置进度条
           } else {
             alert('文件上传失败：' + xhr.statusText);
           }
