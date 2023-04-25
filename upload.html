@@ -16,7 +16,7 @@
       var file = fileInput.files[0];
       
       var xhr = new XMLHttpRequest();
-      var url = 'http://example.com/webdav/file.txt';
+      var url = 'https://drive.loili.com/dav';
 
       xhr.open('PUT', url, true);
       
@@ -25,6 +25,12 @@
       
       // 设置请求头部信息
       xhr.setRequestHeader('Content-Type', file.type);
+
+      // 设置 Basic Auth 认证信息
+      var username = 'huhy12@163.com';
+      var password = 'BBvrrpMbjTijtEiib7lfiZXSm2Gy5OkG';
+      var auth = 'Basic ' + btoa(username + ':' + password);
+      xhr.setRequestHeader('Authorization', auth);
 
       xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
