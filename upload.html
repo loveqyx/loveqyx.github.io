@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>上传文件到WebDAV服务器</title>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  </head>
+  <body>
+    <h2>上传文件到WebDAV服务器</h2>
+    <form>
+      <label for="file-input">选择要上传的文件:</label><br>
+      <input type="file" id="file-input"/><br><br>
+      <label for="username">用户名:</label><br>
+      <input type="text" id="username"><br><br>
+      <label for="password">密码:</label><br>
+      <input type="password" id="password"><br><br>
+      <button type="submit">上传</button>
+    </form>
+    <script>
+      $('form').submit(function(event) {
+        event.preventDefault(); //禁止表单默认提交
+        var fileInput = $('#file-input')[0];
+        var file = fileInput.files[0];
+        if (!file) {
+          alert('请选择要上传的文件');
+          return;
+        }
+        var xhr = new XMLHttpRequest();
+        var url = 'https://dav.jianguoyun.com/dav/' + file.name; //替换成你的WebDAV服务器地址
+        xhr.open('PUT', url);
+        var username = $('#username').val();
+        var password = $('#password').val();
+        var auth = btoa(username + ':' + password); //base64编码
+        xhr.setRequestHeader('Authorization', 'Basic' + auth);
+        xhr.setRequestHeader('Content-Type', file.type);
+        xhr.setRequestHeader('Content-Length', file.size);
+        xhr.onload = function() {
+          if (xhr.status === 201 || xhr.status === 204) {
+            alert('文件上传成功');
+          } else {
+            alert('文件上传失败：' + xhr.statusText);
+          }
+        };
+        xhr.send(file);
+      });
+    </script>
+  </body>
+</html>
