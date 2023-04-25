@@ -5,17 +5,48 @@
 	<meta charset="UTF-8">
 </head>
 <body>	
-<script type="application/javascript">
-$(document).ready(function() {
-    $.getJSON("https://api.ip.sb/geoip?callback=?",
-        function(json) {
-            document.write("Geolocation information for IP address: ", json.ip);
-            document.write("Country: ", json.country);
-            document.write("Latitude: ", json.latitude);
-            document.write("Longitude: ", json.longitude);
-        }
-    );
-});
-</script>
+<center>
+	<br><br><br><br><br><br><br><br><br>
+	<p><span id="showuserip"></span>&nbsp<span id="ip"></span>
+	<br>
+	<span id="showuserprovince"></span>&nbsp<span id="province"></span>
+	<br>
+	<span id="showusercity"></span>&nbsp<span id="city"></span>
+	<br>
+	<span id="showuserisp"></span>&nbsp<span id="isp"></span></p>
+	</center>
+	<script>
+		// 使用免费的ipify API获取访客的IP地址
+		fetch('https://api.ip.sb/geoip')
+			.then(response => response.json())
+			.then(data => {
+                                document.getElementById('showuserip').textContent = "您的ip地址为:";
+				document.getElementById('ip').textContent = data.ip;
+			        let ip_add = data.ip;
+			        let url_get="https://www.fkcoder.com/ip?ip=";
+			        let url_add=url_get+ip_add;
+			        // 使用免费的API获取访客的IP对应的物理地址
+			        fetch(url_add)
+			        .then(response => response.json())
+			        .then(data => {
+					
+                                if(data.province!='0'){
+				document.getElementById('showuserprovince').textContent = "省份:";
+			        document.getElementById('province').textContent = data.province;
+				}
+                                if(data.city!='0'){
+				document.getElementById('showusercity').textContent = "城市:";
+			        document.getElementById('city').textContent = data.city;
+				}
+                                if(data.isp!='0'){
+				document.getElementById('showuserisp').textContent = "网络运营商:";
+			        document.getElementById('isp').textContent = data.isp;
+				}
+				})
+			.catch(error => console.error(error));
+			})
+			.catch(error => console.error(error));
+	</script>
+
 </body>
 </html>
