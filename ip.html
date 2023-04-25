@@ -16,6 +16,45 @@
 			})
 			.catch(error => console.error(error));
 	</script>
- </script>
+	<div style="position: fixed;bottom: 0px;width: 100%;">
+                        <center>
+				<br>
+                                <button onclick="window.location.href='https://chatgpt.qdymys.cn/'">友情链接：在线免费chatGPT&nbsp&nbsp|</button>
+                                <button onclick="window.location.href='https://www.webofscience.com/wos/alldb/basic-search'">&nbspWeb Of Science&nbsp&nbsp|</button>
+                                <button onclick="window.location.href='https://www.bilibili.com/'">&nbspBiliBili&nbsp&nbsp|</button>
+                                <button onclick="window.location.href='https://www.kaggle.com/'">&nbspKaggle&nbsp&nbsp|</button>
+                                <button onclick="window.location.href='https://fanyi.youdao.com/index.html#/'">&nbsp有道云翻译&nbsp&nbsp|</button>
+                                <button onclick="window.location.href='https://github.com/'">&nbspGithub&nbsp&nbsp|</button>
+	                        <p><span id="showuser"></span>&nbsp<span id="ip"></span>&nbsp<span id="province"></span>&nbsp<span id="city"></span>&nbsp<span id="isp"></span></p>
+	                        <script>
+		                        // 使用免费的ipify API获取访客的IP地址
+		                        fetch('https://api.ipify.org/?format=json')
+			                        .then(response => response.json())
+			                        .then(data => {
+                                                        document.getElementById('showuser').textContent = "当前ip:";
+				                        document.getElementById('ip').textContent = data.ip;
+			                                let ip_add = data.ip;
+			                                let url_get="https://www.fkcoder.com/ip?ip=";
+			                                let url_add=url_get+ip_add;
+			                                // 使用免费的API获取访客的归属地
+			                                fetch(url_add)
+			                                .then(response => response.json())
+			                                .then(data => {
+                                                        if(data.province!='0'){
+			                                document.getElementById('province').textContent = data.province;
+                                      }
+                                                        if(data.city!='0'){
+			                                document.getElementById('city').textContent = data.city;
+                                      }
+                                                        if(data.isp!='0'){
+			                                document.getElementById('isp').textContent = data.isp;
+                                      }
+			                                })
+			                        .catch(error => console.error(error));
+			                        })
+			                        .catch(error => console.error(error));
+	                        </script>
+                        </center>
+			</div>
 </body>
 </html>
