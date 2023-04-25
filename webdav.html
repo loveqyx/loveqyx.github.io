@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>访问WebDAV服务器</title>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  </head>
+  <body>
+    <h2>访问WebDAV服务器</h2>
+    <button id="list-files-btn">列出所有文件</button><br><br>
+    <div id="file-list"></div>
+    <script>
+      $('#list-files-btn').click(function() {
+        var xhr = new XMLHttpRequest();
+        var url = 'https://dav.jianguoyun.com/dav/'; //WebDAV服务器地址
+        xhr.open('PROPFIND', url);
+        var username = 'ahddg@outlook.com';
+        var password = 'ar2dztfp4fz6jjrf';
+        var auth = btoa(username + ':' + password); //base64编码
+        xhr.setRequestHeader('Authorization', 'Basic ' + auth);
+        xhr.onload = function() {
+          if (xhr.status === 207) { //207 Multi-Status表示请求成功，返回多个状态信息
+            var xml = xhr.responseXML; //解析XML响应数据
+            var files = xml.getElementsByTagNameNS('DAV:', 'href');
+            var fileList = '<ul>'; //遍历所有的文件URL
+            for (var i = 0; i < files.length; i++) {
+              var fileUrl = files[i].textContent;
+              var fileName = fileUrl.split('/').pop(); //截取文件名
+              if (fileName) {
+                fileList += '<li>' + fileName + '</li>'; //将文件名添加到列表中
+              }
+            }
+            fileList += '</ul>'; //完成文件列表
+            $('#file-list').html(fileList); //在页面上显示文件列表
+          } else {
+            alert('获取文件列表失败：' + xhr.statusText);
+          }
+        };
+        xhr.send();
+      });
+    </script>
+  </body>
+</html>
