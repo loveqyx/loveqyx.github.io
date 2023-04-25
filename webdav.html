@@ -17,6 +17,7 @@
         var password = 'ar2dztfp4fz6jjrf';
         var auth = btoa(username + ':' + password); //base64编码
         xhr.setRequestHeader('Authorization', 'Basic ' + auth);
+        xhr.withCredentials = true; //支持跨域请求
         xhr.onload = function() {
           if (xhr.status === 207) { //207 Multi-Status表示请求成功，返回多个状态信息
             var xml = xhr.responseXML; //解析XML响应数据
