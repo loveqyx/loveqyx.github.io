@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>获取访客IP地址</title>
+	<meta charset="UTF-8">
+</head>
+<body>	
+	<p><span id="wait"></span>
+	<br><span id="showuserip"></span>&nbsp<span id="ip"></span>
+        <br>
+	<span id="showusercountry"></span>&nbsp<span id="country"></span>
+	<br>
+	<span id="showuserprovince"></span>&nbsp<span id="province"></span>
+	<br>
+	<span id="showusercity"></span>&nbsp<span id="city"></span>
+	<br>
+	<span id="showuserisp"></span>&nbsp<span id="isp"></span>
+	<br>
+	<span id="showusertime"></span>&nbsp<span id="time"></span>
+	<br>
+	<span id="showuserorganization"></span>&nbsp<span id="organization"></span></p>
+	<script>
+		document.getElementById('wait').textContent = "正在加载您的ip地址信息，请稍后...";
+		fetch('https://api.ip.sb/geoip')
+			.then(response => response.json())
+			.then(data => {
+			        document.getElementById('wait').textContent = "加载成功！";
+                                document.getElementById('showuserip').textContent = "ip地址:";
+				document.getElementById('ip').textContent = data.ip
+			        if(data.country!='0'){
+				document.getElementById('showusercountry').textContent = "国  家:";
+			        document.getElementById('country').textContent = data.country;
+				}
+			
+                                if(data.province!='0'){
+				document.getElementById('showuserprovince').textContent = "省  份:";
+			        document.getElementById('province').textContent = data.region;
+				}
+                                if(data.city!='0'){
+				document.getElementById('showusercity').textContent = "城  市:";
+			        document.getElementById('city').textContent = data.city;
+				}
+                                if(data.isp!='0'){
+				document.getElementById('showuserisp').textContent = "运营商:";
+			        document.getElementById('isp').textContent = data.isp;
+				}
+                                if(data.timezone!='0'){
+				document.getElementById('showusertime').textContent = "时  区:";
+			        document.getElementById('time').textContent = data.timezone;
+				}
+                                if(data.timezone!='0'){
+				document.getElementById('showuserorganization').textContent = "组  织:";
+			        document.getElementById('organization').textContent = data.organization;
+				}
+				})
+			.catch(error => console.error(error));
+                        setTimeout(function() {
+                        document.getElementById('showusercountry').textContent = "&nbsp";
+			document.getElementById('country').textContent ="&nbsp";
+                       }, 5000);
+	</script>
+</body>
+</html>
