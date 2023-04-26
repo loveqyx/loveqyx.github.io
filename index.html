@@ -110,6 +110,7 @@ https://github.com/616620131/Simple-Search-Page
 			                                let url_add=url_get+ip_add;
 						        document.getElementById('showuser1').textContent = "欢迎来自：";
 				                        document.getElementById('ip1').textContent = data.ip;
+	                                                document.getElementById('end').textContent = "的用户";
 			                                // 使用免费的API获取访客的归属地
 			                                fetch(url_add)
 			                                .then(response => response.json())
@@ -123,7 +124,6 @@ https://github.com/616620131/Simple-Search-Page
                                                         if(data.isp!='0'){
 			                                document.getElementById('isp1').textContent = data.isp;
                                       }
-	                                                document.getElementById('end').textContent = "的用户";
 			                                })
 			                        .catch(error => console.error(error));
 			                        })
@@ -135,7 +135,7 @@ https://github.com/616620131/Simple-Search-Page
 			                         document.getElementById('city1').textContent ="";
                                                  document.getElementById('isp1').textContent = "";
 			                         document.getElementById('end').textContent ="";
-                       }, 8000);
+                       }, 6500);
 	                        </script>
 	</center>
 	</div>
