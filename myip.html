@@ -1,10 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>获取访客IP地址</title>
+	<title>获取您的IP地址及浏览器UA</title>
 	<meta charset="UTF-8">
 </head>
 <body>	
+	<div>
+	<center>
+	<p><span id="showuser1"></span>&nbsp<span id="ip1"></span>&nbsp<span id="province1"></span>&nbsp<span id="city1"></span>&nbsp<span id="isp1"></span>&nbsp<span id="end"></span></p>
+	                        <script>
+		                        // 使用免费的ipify API获取访客的IP地址
+		                        fetch('https://api.ipify.org/?format=json')
+			                        .then(response => response.json())
+			                        .then(data => {
+			                                let ip_add = data.ip;
+			                                let url_get="https://www.fkcoder.com/ip?ip=";
+			                                let url_add=url_get+ip_add;
+						        document.getElementById('showuser1').textContent = "欢迎来自：";
+				                        document.getElementById('ip1').textContent = data.ip;
+			                                // 使用免费的API获取访客的归属地
+			                                fetch(url_add)
+			                                .then(response => response.json())
+			                                .then(data => {
+                                                        if(data.province!='0'){
+			                                document.getElementById('province1').textContent = data.province;
+                                      }
+                                                        if(data.city!='0'){
+			                                document.getElementById('city1').textContent = data.city;
+                                      }
+                                                        if(data.isp!='0'){
+			                                document.getElementById('isp1').textContent = data.isp;
+                                      }
+	                                                document.getElementById('end').textContent = "的用户";
+			                                })
+			                        .catch(error => console.error(error));
+			                        })
+			                        .catch(error => console.error(error));
+					         setTimeout(function() {
+                                                 document.getElementById('showuser1').textContent = "";
+			                         document.getElementById('ip1').textContent ="";
+                                                 document.getElementById('province1').textContent = "";
+			                         document.getElementById('city1').textContent ="";
+                                                 document.getElementById('isp1').textContent = "";
+			                         document.getElementById('end').textContent ="";
+                       }, 5000);
+	                        </script>
+	</center>
+	</div>
 	<p><span id="wait"></span>
 	<br><span id="showuserip"></span>&nbsp<span id="ip"></span>
         <br>
@@ -18,13 +60,17 @@
 	<br>
 	<span id="showusertime"></span>&nbsp<span id="time"></span>
 	<br>
-	<span id="showuserorganization"></span>&nbsp<span id="organization"></span></p>
+	<span id="showuserorganization"></span>&nbsp<span id="organization"></span>
+	<br>
+	<span id="showagent"></span>&nbsp<span id="userAgentDiv"></span></p>
 	<script>
 		document.getElementById('wait').textContent = "正在加载您的ip地址信息，请稍后...";
 		fetch('https://api.ip.sb/geoip')
 			.then(response => response.json())
 			.then(data => {
-			        document.getElementById('wait').textContent = "加载成功！";
+			        document.getElementById('wait').textContent = "获取成功！";
+			        document.getElementById("showagent").textContent = "UA:";
+			        document.getElementById("userAgentDiv").innerHTML = navigator.userAgent;
                                 document.getElementById('showuserip').textContent = "ip地址:";
 				document.getElementById('ip').textContent = data.ip
 			        if(data.country!='0'){
