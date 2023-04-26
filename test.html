@@ -27,7 +27,7 @@
 			.then(response => response.json())
 			.then(data => {
 			        document.getElementById('wait').textContent = "获取成功！";
-			        document.getElementById("showagent").textContent = "userAgent:";
+			        document.getElementById("showagent").textContent = "UA:";
 			        document.getElementById("userAgentDiv").innerHTML = navigator.userAgent;
                                 document.getElementById('showuserip').textContent = "ip地址:";
 				document.getElementById('ip').textContent = data.ip
