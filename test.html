@@ -5,6 +5,48 @@
 	<meta charset="UTF-8">
 </head>
 <body>	
+	<div>
+	<center>
+	<p><span id="showuser1"></span>&nbsp<span id="ip1"></span>&nbsp<span id="province1"></span>&nbsp<span id="city1"></span>&nbsp<span id="isp1"></span>&nbsp<span id="end"></span></p>
+	                        <script>
+		                        // 使用免费的ipify API获取访客的IP地址
+		                        fetch('https://api.ipify.org/?format=json')
+			                        .then(response => response.json())
+			                        .then(data => {
+                                                        document.getElementById('showuser1').textContent = "欢迎来自：";
+				                        document.getElementById('ip1').textContent = data.ip;
+			                                let ip_add = data.ip;
+			                                let url_get="https://www.fkcoder.com/ip?ip=";
+			                                let url_add=url_get+ip_add;
+			                                // 使用免费的API获取访客的归属地
+			                                fetch(url_add)
+			                                .then(response => response.json())
+			                                .then(data => {
+                                                        if(data.province!='0'){
+			                                document.getElementById('province1').textContent = data.province;
+                                      }
+                                                        if(data.city!='0'){
+			                                document.getElementById('city1').textContent = data.city;
+                                      }
+                                                        if(data.isp!='0'){
+			                                document.getElementById('isp1').textContent = data.isp;
+                                      }
+	                                                document.getElementById('end').textContent = "的用户";
+			                                })
+			                        .catch(error => console.error(error));
+			                        })
+			                        .catch(error => console.error(error));
+					         setTimeout(function() {
+                                                 document.getElementById('showuser1').textContent = "";
+			                         document.getElementById('ip1').textContent ="";
+                                                 document.getElementById('province1').textContent = "";
+			                         document.getElementById('city1').textContent ="";
+                                                 document.getElementById('province1').textContent = "";
+			                         document.getElementById('end').textContent ="";
+                       }, 5000);
+	                        </script>
+	</center>
+	</div>
 	<p><span id="wait"></span>
 	<br><span id="showuserip"></span>&nbsp<span id="ip"></span>
         <br>
