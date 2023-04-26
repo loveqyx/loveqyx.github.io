@@ -18,13 +18,16 @@
 	<br>
 	<span id="showusertime"></span>&nbsp<span id="time"></span>
 	<br>
-	<span id="showuserorganization"></span>&nbsp<span id="organization"></span></p>
+	<span id="showuserorganization"></span>&nbsp<span id="organization"></span>
+	<span id="showagent"></span>&nbsp<span id="userAgentDiv"></span></p>
 	<script>
 		document.getElementById('wait').textContent = "正在加载您的ip地址信息，请稍后...";
 		fetch('https://api.ip.sb/geoip')
 			.then(response => response.json())
 			.then(data => {
-			        document.getElementById('wait').textContent = "加载成功！";
+			        document.getElementById('wait').textContent = "获取成功！";
+			        document.getElementById("showagent").textContent = "userAgent:";
+			        document.getElementById("userAgentDiv").innerHTML = navigator.userAgent;
                                 document.getElementById('showuserip').textContent = "ip地址:";
 				document.getElementById('ip').textContent = data.ip
 			        if(data.country!='0'){
