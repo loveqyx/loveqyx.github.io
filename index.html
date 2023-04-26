@@ -99,7 +99,7 @@ https://github.com/616620131/Simple-Search-Page
 			</div>
         <div>
 	<center>
-	<p><span id="showuser1"></span>&nbsp<span id="ip1"></span>&nbsp<span id="province1"></span>&nbsp<span id="city1"></span>&nbsp<span id="isp1"></span>&nbsp<span id="end"></span></p>
+	<p><span id="showuser1"></span><span id="ip1"></span><span id="province1"></span><span id="city1"></span><span id="isp1"></span><span id="end"></span></p>
 	                        <script>
 		                        // 使用免费的ipify API获取访客的IP地址
 		                        fetch('https://api.ipify.org/?format=json')
@@ -108,7 +108,7 @@ https://github.com/616620131/Simple-Search-Page
 			                                let ip_add = data.ip;
 			                                let url_get="https://www.fkcoder.com/ip?ip=";
 			                                let url_add=url_get+ip_add;
-						        document.getElementById('showuser1').textContent = "欢迎来自：";
+						        document.getElementById('showuser1').textContent = "欢迎来自:";
 				                        document.getElementById('ip1').textContent = data.ip;
 	                                                document.getElementById('end').textContent = "的用户";
 			                                // 使用免费的API获取访客的归属地
