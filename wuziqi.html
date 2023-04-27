@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jquery五子棋游戏 -</title>
+<script type="text/javascript" src="http://hovertree.com/texiao/game/4/hovertreejs/CookieHandle.js"></script>
+<script src="http://hovertree.com/ziyuan/jquery/jquery-1.11.3.min.js"></script>
+<link href="http://hovertree.com/texiao/game/4/hovertreejs/jquery.hvtchess5.css" rel="stylesheet" type="text/css" />
+<script src="http://hovertree.com/texiao/game/4/hovertreejs/jquery.hvtchess5.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<div class="chessboard">
+<!-- top line -->
+<div class="chess-top"></div>
+<div class="chess-top"></div>
+<div class="chess-top"></div>
+<div class="chess-top"></div>
+<div class="chess-top"></div>
+<div class="chess-top"></div>
+<div class="chess-top"></div>
+<div class="chess-top"></div>
+<div class="chess-top"></div>
+<div class="chess-top"></div>
+<div class="chess-top"></div>
+<div class="chess-top"></div>
+<div class="chess-top"></div>
+<div class="chess-top"></div>
+<div class="chess-top chess-right"></div>
+<!-- line 1 -->
+<div class="chess-left"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-right"></div>
+<!-- line 2 -->
+<div class="chess-left"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-right"></div>
+<!-- line 3 -->
+<div class="chess-left"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-right"></div>
+<!-- line 4 -->
+<div class="chess-left"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-right"></div>
+<!-- line 5 -->
+<div class="chess-left"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-right"></div>
+<!-- line 6 -->
+<div class="chess-left"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-right"></div>
+<!-- line 7 -->
+<div class="chess-left"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-right"></div>
+<!-- line 8 -->
+<div class="chess-left"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-right"></div>
+<!-- line 9 -->
+<div class="chess-left"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-right"></div>
+<!-- line 10 -->
+<div class="chess-left"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-right"></div>
+<!-- line 11 -->
+<div class="chess-left"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-right"></div>
+<!-- line 12 -->
+<div class="chess-left"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-right"></div>
+<!-- line 13 -->
+<div class="chess-left"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-middle"></div>
+<div class="chess-right"></div>
+<!-- bottom line -->
+<div class="chess-bottom"></div>
+<div class="chess-bottom"></div>
+<div class="chess-bottom"></div>
+<div class="chess-bottom"></div>
+<div class="chess-bottom"></div>
+<div class="chess-bottom"></div>
+<div class="chess-bottom"></div>
+<div class="chess-bottom"></div>
+<div class="chess-bottom"></div>
+<div class="chess-bottom"></div>
+<div class="chess-bottom"></div>
+<div class="chess-bottom"></div>
+<div class="chess-bottom"></div>
+<div class="chess-bottom"></div>
+<div class="chess-bottom chess-right"></div>
+</div>
+
+<div class="operating-panel">
+<p>
+<a id="black_btn" class="btn selected" href="#">黑  子</a>
+<a id="white_btn" class="btn" href="#">白  子</a>
+</p>
+<p>
+<a id="first_move_btn" class="btn selected" href="#">先  手</a>
+<a id="second_move_btn" class="btn" href="#">后  手</a>
+</p>
+<a id="replay_btn" class="btn" href="#">开   始</a>
+<p id="result_info">胜率：100%</p>
+<p id="result_tips"></p>
+</div>
+
+<div style="display: none">
+<!-- 图片需合并 减少http请求数 -->
+<img src="http://hovertree.com/texiao/game/4/hovertreepic/black.png" alt="preload" />
+<img src="http://hovertree.com/texiao/game/4/hovertreepic/white.png" alt="preload" />
+<img src="http://hovertree.com/texiao/game/4/hovertreepic/hover.png" alt="preload" />
+<img src="http://hovertree.com/texiao/game/4/hovertreepic/hover_up.png" alt="preload" />
+<img src="http://hovertree.com/texiao/game/4/hovertreepic/hover_down.png" alt="preload" />
+<img src="http://hovertree.com/texiao/game/4/hovertreepic/hover_up_left.png" alt="preload" />
+<img src="http://hovertree.com/texiao/game/4/hovertreepic/hover_up_right.png" alt="preload" />
+<img src="http://hovertree.com/texiao/game/4/hovertreepic/hover_left.png" alt="preload" />
+<img src="http://hovertree.com/texiao/game/4/hovertreepic/hover_right.png" alt="preload" />
+<img src="http://hovertree.com/texiao/game/4/hovertreepic/hover_down_left.png" alt="preload" />
+<img src="http://hovertree.com/texiao/game/4/hovertreepic/hover_down_right.png" alt="preload" />
+<img src="http://hovertree.com/texiao/game/4/hovertreepic/black_last.png" alt="preload" />
+<img src="http://hovertree.com/texiao/game/4/hovertreepic/white_last.png" alt="preload" />
+</div>
+</div>
+</body>
+</html>
