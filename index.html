@@ -151,14 +151,30 @@ https://qyx.one
 				<br>
 				<font size="2">共</font>
                                 <span id="busuanzi_value_page_pv" size="2"><i class="fa fa-spinner fa-spin"></i></span>
-				<font size="2">次访问</font>
-                                <font size="2">性能和安全由提供</font>
-                                <a href="https://www.cloudflare.com/" target="_blank" class="embed">
-                                <font size="2";clor=#1A6BE6>cloudflare</font>
-                                </a>
-                                <font size="2">提供</font>
+				<font size="2">次访问&nbsp</font>
+				<font id="box1" size="2"></font>
                         </center>
+				<script>
+						 function timingTime(){
+						 let start = '2021-5-20 00:00:00'
+						 let startTime = new Date(start).getTime()
+                                                 let currentTime = new Date().getTime()
+                                                 let difference = currentTime - startTime
+                                                 let m =  Math.floor(difference / (1000))
+                                                 let mm = m % 60  // 秒
+                                                 let f = Math.floor(m / 60)
+                                                 let ff = f % 60 // 分钟
+                                                 let s = Math.floor(f/ 60) // 小时
+                                                 let ss = s % 24
+                                                 let day = Math.floor(s  / 24 ) // 天数
+                                                 return "已安全运行"+day + "天" + ss + "时" + ff + "分" + mm +'秒'
+                                               }
+                                               setInterval(()=>{
+                                                 document.getElementById('box1').innerHTML = timingTime()
+                                               },1000)
+                                 </script>
 			</div>
+ 
 		</div>
         
 	</body>
