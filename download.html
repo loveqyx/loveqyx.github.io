@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>下载页面</title>
+</head>
+<body>
+<center>
+<h1>下载中心(v1.0)</h1>
+<h2>请点击以下按钮进行下载</h2>
+<a href="/images/myw3schoolimage.jpg" download="VSCode">
+<br>
+<a href="/images/myw3schoolimage.jpg" download="MobaXterm">
+</center>
+			<div style="position: fixed;bottom: 0px;width: 100%;">
+			<HR SIZE=1>
+                        <center>
+				©2021-2023 
+		               <a href="https://qyx.one" target="_blank" class="embed">
+		               <img src="img/search.png" style="height: 13px;">雨欣导航 
+		               </a>
+		               All rights reserved
+				<br>
+				<font id="box1" size="2"></font>
+                        </center>
+				<script>
+						 function timingTime(){
+						 let start = '2021-5-20 00:00:00'
+						 let startTime = new Date(start).getTime()
+                                                 let currentTime = new Date().getTime()
+                                                 let difference = currentTime - startTime
+                                                 let m =  Math.floor(difference / (1000))
+                                                 let mm = m % 60  // 秒
+                                                 let f = Math.floor(m / 60)
+                                                 let ff = f % 60 // 分钟
+                                                 let s = Math.floor(f/ 60) // 小时
+                                                 let ss = s % 24
+                                                 let day = Math.floor(s  / 24 ) // 天数
+                                                 return "已安全运行"+day + "天" + ss + "时" + ff + "分" + mm +'秒'
+                                               }
+                                               setInterval(()=>{
+                                                 document.getElementById('box1').innerHTML = timingTime()
+                                               },1000)
+                                 </script>
+			</div>
+</body>
+</html>
